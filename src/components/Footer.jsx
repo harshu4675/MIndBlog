@@ -1,54 +1,73 @@
 import React from "react";
-import { Globe, Zap, Shield, Github, Twitter, Linkedin } from "lucide-react";
+import { Github, Linkedin, Twitter, Zap } from "lucide-react";
+import "./Styles/Footer.css";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="mt-20 py-16 border-t border-white/5 bg-[#0a0a0f]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col items-center">
-          {/* Social Links */}
-          <div className="flex space-x-8 mb-10">
-            <Github
-              size={20}
-              className="text-gray-600 hover:text-cyan-400 cursor-pointer transition-colors"
-            />
-            <Twitter
-              size={20}
-              className="text-gray-600 hover:text-cyan-400 cursor-pointer transition-colors"
-            />
-            <Linkedin
-              size={20}
-              className="text-gray-600 hover:text-cyan-400 cursor-pointer transition-colors"
-            />
-          </div>
+    <footer className="footer">
+      {/* Glow Line */}
+      <div className="footer-glow-line"></div>
 
-          {/* Center Branding */}
-          <div className="flex items-center space-x-3 mb-6 opacity-40">
-            <div className="w-6 h-6 bg-gray-500 rounded flex items-center justify-center">
-              <Zap size={14} className="text-black" />
-            </div>
-            <span className="text-sm font-black tracking-[0.3em] uppercase">
-              Core.OS Interface
-            </span>
+      <div className="footer-container">
+        {/* Brand */}
+        <div className="footer-brand">
+          <div className="brand-logo">
+            <Zap />
           </div>
-
-          {/* System Status Line */}
-          <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-8 text-[10px] font-bold text-gray-700 uppercase tracking-[0.2em]">
-            <span className="flex items-center">
-              <div className="w-1.5 h-1.5 rounded-full bg-green-500 mr-2 animate-pulse"></div>{" "}
-              Network: Online
-            </span>
-            <span>Security: 256-Bit AES</span>
-            <span>Environment: Production</span>
-          </div>
-
-          {/* Copyright */}
-          <p className="text-gray-600 text-[9px] tracking-[0.5em] uppercase text-center">
-            © {currentYear} CORE.OS TRANSMISSION TERMINATED // BUILT FOR BTECH
-            FINAL SUBMISSION
+          <h2 className="brand-title">MindBlog</h2>
+          <p className="brand-desc">
+            A futuristic tech blog exploring development, tools, design, and
+            emerging technologies. Built for curious minds.
           </p>
+        </div>
+
+        {/* Navigation */}
+        <div className="footer-section">
+          <h3>Navigate</h3>
+          <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Labs</li>
+            <li>Articles</li>
+          </ul>
+        </div>
+
+        {/* Resources */}
+        <div className="footer-section">
+          <h3>Resources</h3>
+          <ul>
+            <li>React</li>
+            <li>Vite</li>
+            <li>Tailwind CSS</li>
+            <li>Web Trends</li>
+          </ul>
+        </div>
+
+        {/* Social */}
+        <div className="footer-section">
+          <h3>Connect</h3>
+          <div className="social-icons">
+            <a href="https://github.com/harshu4675" className="social-btn">
+              <Github size={18} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/harsh-solanki-2b3a04310/"
+              className="social-btn"
+            >
+              <Linkedin size={18} />
+            </a>
+            <a className="social-btn">
+              <Twitter size={18} />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="footer-bottom">
+        <div className="footer-bottom-container">
+          <span>© 2026 MindBlog. All rights reserved.</span>
+          <span>Built with React • Vite • Tailwind</span>
         </div>
       </div>
     </footer>
