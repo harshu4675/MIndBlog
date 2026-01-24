@@ -1,0 +1,188 @@
+/* MAIN CONTAINER */
+.labs-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 80px 24px;
+  animation: slideIn 0.7s ease-in-out;
+  color: white;
+  font-family: system-ui, sans-serif;
+}
+
+/* HEADER */
+.labs-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.labs-icon {
+  margin: auto;
+  color: #22d3ee;
+  margin-bottom: 24px;
+}
+
+.labs-title {
+  font-size: 36px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+
+.labs-subtitle {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-style: italic;
+  color: #6b7280;
+}
+
+/* FORM CARD (Glass Effect) */
+.labs-form {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 32px;
+  border-radius: 40px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 40px rgba(6, 182, 212, 0.05);
+}
+
+/* Responsive Padding */
+@media (min-width: 768px) {
+  .labs-form {
+    padding: 48px;
+  }
+}
+
+/* GRID INPUTS */
+.labs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .labs-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* INPUT */
+.labs-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px 24px;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.labs-input::placeholder {
+  color: #6b7280;
+}
+
+.labs-input:focus {
+  border-color: #22d3ee;
+}
+
+/* ENCRYPTION BOX */
+.labs-encryption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(34, 211, 238, 0.1);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  border-radius: 12px;
+  padding: 0 24px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #22d3ee;
+}
+
+/* TEXTAREA */
+.labs-textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px 24px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+  outline: none;
+  transition: all 0.3s ease;
+  margin-bottom: 24px;
+}
+
+.labs-textarea::placeholder {
+  color: #6b7280;
+}
+
+.labs-textarea:focus {
+  border-color: #22d3ee;
+}
+
+/* BUTTON */
+.labs-button {
+  width: 100%;
+  background: #22d3ee;
+  color: black;
+  font-weight: 900;
+  padding: 16px;
+  border-radius: 12px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.labs-button:hover {
+  background: #67e8f9;
+}
+
+.labs-button:active {
+  transform: scale(0.95);
+}
+
+/* Pulse Animation */
+.pulse {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Slide Animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
