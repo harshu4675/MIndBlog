@@ -1,5 +1,6 @@
 import React from "react";
-import { Target, Shield, MessageSquare, Zap } from "lucide-react";
+import { Target, MessageSquare } from "lucide-react";
+import "./Styles/About.css";
 
 const About = () => {
   const stats = [
@@ -10,42 +11,42 @@ const About = () => {
   ];
 
   return (
-    <div className="animate-in fade-in duration-700 max-w-5xl mx-auto px-6 py-20">
-      <h2 className="text-5xl font-black mb-16 text-center tracking-tighter uppercase">
-        System <span className="text-cyan-400">Specs</span>
+    <div className="about-container">
+      <h2 className="about-title">
+        System <span>Specs</span>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-        <div className="space-y-8">
-          <div>
-            <h4 className="text-cyan-400 font-black uppercase tracking-widest text-[11px] mb-3 flex items-center">
-              <Target size={18} className="mr-2" /> The Vision
+
+      <div className="about-grid">
+        {/* Left Content */}
+        <div className="about-text">
+          <div className="about-block">
+            <h4>
+              <Target size={18} /> The Vision
             </h4>
-            <p className="text-gray-400 leading-relaxed text-base">
+            <p>
               CORE.OS is an experimental content hub built to demonstrate modern
               React proficiency. This project explores the intersection of
               aesthetic futurism and complex data visualization.
             </p>
           </div>
-          <div>
-            <h4 className="text-cyan-400 font-black uppercase tracking-widest text-[11px] mb-3 flex items-center">
-              <MessageSquare size={18} className="mr-2" /> Integration
+
+          <div className="about-block">
+            <h4>
+              <MessageSquare size={18} /> Integration
             </h4>
-            <p className="text-gray-400 leading-relaxed text-base">
+            <p>
               All broadcast data is sourced from global nodes. Our mission is to
               bridge the gap between human intuition and machine precision.
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+
+        {/* Stats Cards */}
+        <div className="about-stats">
           {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="bg-white/5 border border-white/10 p-8 rounded-[2rem] text-center hover:border-cyan-500/30 transition-colors"
-            >
-              <p className="text-[10px] text-gray-500 uppercase font-black tracking-[0.2em] mb-1">
-                {stat.label}
-              </p>
-              <p className="text-3xl font-black text-white">{stat.val}</p>
+            <div key={stat.label} className="stat-card">
+              <p className="stat-label">{stat.label}</p>
+              <p className="stat-value">{stat.val}</p>
             </div>
           ))}
         </div>
