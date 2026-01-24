@@ -1,58 +1,81 @@
 import React from "react";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import "./Styles/Navbar.css";
 
 const Navbar = ({
   scrolled,
-  isMenuOpen,
-  setIsMenuOpen,
   navigateTo,
   currentPage,
-}) => (
-  <nav
-    className={`fixed w-full z-50 transition-all duration-500 ${
-      scrolled
-        ? "bg-[#0a0a0f]/90 backdrop-blur-xl border-b border-white/10 py-3"
-        : "bg-transparent py-6"
-    }`}
-  >
-    <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-      <div
-        onClick={() => navigateTo("home")}
-        className="flex items-center space-x-2 cursor-pointer group"
-      >
-        <div className="w-10 h-10 bg-gradient-to-tr from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center shadow-[0_0_20px_rgba(6,182,212,0.5)] group-hover:rotate-12 transition-transform">
-          <Zap size={24} className="text-white" />
-        </div>
-        <h1 className="text-2xl font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 uppercase">
-          MindBlog
-        </h1>
-      </div>
+  isMenuOpen,
+  setIsMenuOpen,
+}) => {
+  const navLinks = ["home", "about", "labs", "saved"];
 
-      {/* Increased font size to text-sm/base and font-bold */}
-      <div className="hidden md:flex space-x-10 text-[13px] font-black tracking-[0.2em] uppercase">
-        {["home", "about", "labs"].map((page) => (
-          <button
-            key={page}
-            onClick={() => navigateTo(page)}
-            className={`transition-all hover:scale-110 ${
-              currentPage === page
-                ? "text-cyan-400"
-                : "text-gray-400 hover:text-white"
-            }`}
+  return (
+    <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
+      <div className="navbar-container">
+        <div className={`navbar-box ${scrolled ? "navbar-shadow" : ""}`}>
+          {/* LOGO */}
+          <div
+            onClick={() => {
+              navigateTo("home");
+              setIsMenuOpen(false);
+            }}
+            className="navbar-logo"
           >
-            {page}
-          </button>
-        ))}
-      </div>
+            <div className="logo-icon">
+              <div className="logo-dot"></div>
+            </div>
+            <h1 className="logo-text">
+              MIND<span>BLOG</span>
+            </h1>
+          </div>
 
-      <button
-        className="md:hidden text-white"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-      >
-        {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-      </button>
-    </div>
-  </nav>
-);
+          {/* DESKTOP NAV */}
+          <div className="navbar-links">
+            {navLinks.map((page) => (
+              <button
+                key={page}
+                onClick={() => navigateTo(page)}
+                className={`nav-link ${currentPage === page ? "active" : ""}`}
+              >
+                {page === "saved" ? "Saved" : page}
+                <span className="nav-underline"></span>
+              </button>
+            ))}
+          </div>
+
+          {/* MOBILE MENU BUTTON */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="mobile-menu-btn"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* MOBILE MENU */}
+        {isMenuOpen && (
+          <div className="mobile-menu">
+            {navLinks.map((page) => (
+              <button
+                key={page}
+                onClick={() => {
+                  navigateTo(page);
+                  setIsMenuOpen(false);
+                }}
+                className={`mobile-link ${
+                  currentPage === page ? "active" : ""
+                }`}
+              >
+                {page === "saved" ? "Saved" : page}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    </nav>
+  );
+};
 
 export default Navbar;
